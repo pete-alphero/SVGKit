@@ -200,11 +200,13 @@ static NSMutableDictionary* globalSVGKImageCache;
 						   SVGKImageCacheLine* newCacheLine = [[SVGKImageCacheLine alloc] init];
 						   newCacheLine.mainInstance = finalImage;
 						   
-						   [globalSVGKImageCache setValue:newCacheLine forKey:source.keyForAppleDictionaries];
+                           if (newCacheLine != nil && finalImage.nameUsedToInstantiate != nil) {
+                               [globalSVGKImageCache setValue:newCacheLine forKey:finalImage.nameUsedToInstantiate];
+                           }
 					   }
 					   else
 					   {
-						   NSLog(@"[%@] WARNING: not caching the output for new SVG image with source = %@, because it failed to load correctly", [self class], source );
+						//   NSLog(@"[%@] WARNING: not caching the output for new SVG image with source = %@, because it failed to load correctly", [self class], source );
 					   }
 #endif
 					   
