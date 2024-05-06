@@ -5,7 +5,7 @@ let package = Package(
     name: "SVGKit",
     platforms: [
         .macOS(.v10_10),
-        .iOS(.v13),
+        .iOS(.v12),
         .tvOS(.v13)
     ],
     products: [
@@ -19,19 +19,8 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/CocoaLumberjack/CocoaLumberjack.git", .upToNextMajor(from: "3.7.0"))
     ],
     targets: [
-        .target(
-            name: "SVGKit",
-            dependencies: [
-                "CocoaLumberjack"
-            ],
-            path: "Source",
-            exclude: [
-                "SwiftUI additions"
-            ]
-        ),
         .target(
             name: "SVGKitSwift",
             dependencies: [
